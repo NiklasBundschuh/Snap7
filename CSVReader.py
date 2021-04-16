@@ -18,9 +18,13 @@ def parseFile(Header, Footer, Data):
             
             if headerSection == True:
                 HeaderParser(fileLine, Header)
+                if fileLine == "Kopfzeilen ENDE":
+                    headerSection = False
 
             elif footerSection == True:
                 FooterParser(fileLine, Footer)
+                if fileLine == "Fusszeilen ENDE":
+                    footerSection = False
             
             elif dataSection == True:
                 DataParser(fileLine, Data)
@@ -49,7 +53,6 @@ def checkForSection(fileLine, headerState, footerState, dataState):
 
     # check the Header End
     elif fileLine[0:len(HEADER_END)] == HEADER_END:
-        headerState = False
         fileLine = HEADER_END
                
             
@@ -61,7 +64,6 @@ def checkForSection(fileLine, headerState, footerState, dataState):
            
      # check the Footer End
     elif fileLine[0:len(FOOTER_END)] == FOOTER_END:
-        footerState = False
         fileLine = FOOTER_END
         
 
