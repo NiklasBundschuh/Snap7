@@ -4,7 +4,7 @@ from CSVCreator import ReadAndWrite
 class TestCSVCreator(unittest.TestCase):
 
     def test_ReadAndWriter(self):
-        self.assertEqual(ReadAndWrite("Kopfzeilen START"),"Kopfzeilen START;\n")
+        self.assertEqual(ReadAndWrite([]),["Kopfzeilen START\n"])
 
 
 

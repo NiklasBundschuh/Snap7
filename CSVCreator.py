@@ -5,6 +5,7 @@ def ReadAndWrite(CSVData):
             for fileLine in file:
                 fileLine = fileLine[:-1]
                 CSVData.append(fileLine + "\n")
+                return CSVData
                 
     with open('CSVCopy.csv', 'w', newline='')as copy:
         writer = csv.writer(copy)
